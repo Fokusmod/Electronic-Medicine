@@ -29,12 +29,12 @@ services:
       - dev
   backend:
     build:
-      context: ./electronic-medicine-backend
+      context: ./backend
     networks:
       - dev
     env_file: "prod.env"
   frontend:
     build:
-      context: ./electronic-medicine-front
+      context: ./frontend
     networks:
       - dev
