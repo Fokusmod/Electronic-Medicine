@@ -34,7 +34,7 @@ import java.util.stream.Collectors;
 public class UserService implements UserDetailsService {
 
     //TODO СЕРВЕР ССЫЛКА
-    private final static String HOST = "http://localhost:/api/activate";
+    private final static String HOST = "http://90.156.158.203/api/activate";
 
     private final int passwordLength = 6;
 
@@ -107,7 +107,6 @@ public class UserService implements UserDetailsService {
             StringBuilder message = new StringBuilder();
             message.append("<h4>Добро пожаловать ").append(user.getEmail()).append(". Ваш код активации ").append(user.getActivationCode()).append("</h4>");
             message.append("<span>Вы также можете посетить страницу активации по адресу <a href=").append(HOST).append(">Ваша ссылка</a> </span>");
-
             mailSender.sendActivateCodeMessage(user.getEmail(), "Код активации для продолжения регистрации на " +
                     "портале Electronic Medicine", message.toString());
         } catch (Exception e) {
@@ -119,7 +118,6 @@ public class UserService implements UserDetailsService {
         try {
             StringBuilder message = new StringBuilder();
             message.append("<h4>Поздравляем! Вы успешно активировали учётную запись.</h4>");
-
             mailSender.sendActivateCodeMessage(user.getEmail(), "Успешное подтверждение аккаунта", message.toString());
         } catch (Exception e) {
             throw new MedicineServerErrorException("Указанный вами email адрес не существует.");

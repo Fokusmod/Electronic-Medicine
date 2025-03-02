@@ -15,13 +15,13 @@ public class SmtpMailSender {
     private String host;
     //TODO ПЕРЕМЕННЫЕ КОНФИГИ
 
-    private final String username = System.getenv("MAIL_USERNAME");
-
-    private final String password = System.getenv("MAIL_PASSWORD");
-
-//    private final String username = System.getenv("SPRING_MAIL_USERNAME");
+//    private final String username = System.getenv("MAIL_USERNAME");
 //
-//    private final String password = System.getenv("SPRING_MAIL_PASSWORD");
+//    private final String password = System.getenv("MAIL_PASSWORD");
+
+    private final String username = System.getenv("SPRING_MAIL_USERNAME");
+
+    private final String password = System.getenv("SPRING_MAIL_PASSWORD");
 
 
     @Value("${spring.mail.port}")
