@@ -76,28 +76,35 @@ export default function Employye() {
               <div className="emp-content-box">
                 {isReady &&
                   content.map(function (data, i) {
-                    return (
-                      <EmployyeItem
-                        key={i}
-                        firstName={
-                          data.firstName !== null
-                            ? data.firstName
-                            : data.username
-                        }
-                        lastName={data.lastName}
-                        position={
-                          data.specialities !== null &&
-                          data.specialities !== undefined
-                            ? data.specialities[0].title
-                            : null
-                        }
-                        status={data.status}
-                        id={data.id}
-                        specs={specialisation}
-                        roles={data.roles}
-                        admin={checkAdminRole(data.roles)}
-                      />
-                    );
+                    if (data.lastName != null) {
+                      return (
+                        <EmployyeItem
+                          key={i}
+                          firstName={data.firstName}
+                          lastName={data.lastName}
+                          position={data.specialities[0].title}
+                          status={data.status}
+                          id={data.id}
+                          specs={specialisation}
+                          roles={data.roles}
+                          admin={checkAdminRole(data.roles)}
+                        />
+                      );
+                    } else {
+                      return (
+                        <EmployyeItem
+                          key={i}
+                          firstName={data.username}
+                          lastName={""}
+                          position={""}
+                          status={""}
+                          id={data.id}
+                          specs={""}
+                          roles={data.roles}
+                          admin={checkAdminRole(data.roles)}
+                        />
+                      );
+                    }
                   })}
               </div>
             </div>
