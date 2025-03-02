@@ -99,7 +99,7 @@ export default function Employye() {
                           position={""}
                           status={""}
                           id={data.id}
-                          specs={""}
+                          specs={specialisation}
                           roles={data.roles}
                           admin={checkAdminRole(data.roles)}
                         />
