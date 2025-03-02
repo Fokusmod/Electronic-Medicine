@@ -1,0 +1,334 @@
+.section-title {
+    padding-left: 30px;
+    border-left: 1px solid hsl(200, 85.2%, 15.9%);
+    border-right: 1px solid hsl(200, 85.2%, 15.9%);
+    color: hsl(200, 85.2%, 15.9%);
+    font-weight: bold;
+    
+}
+
+.content-section {
+    display: flex;
+    border-left: 1px solid hsl(200, 85.2%, 15.9%);
+    border-right: 1px solid hsl(200, 85.2%, 15.9%);
+    border-bottom: 1px solid hsl(200, 85.2%, 15.9%);
+    padding-bottom: 20px;
+}
+
+.create-content-section {
+    display: flex;
+    border-left: 1px solid hsl(200, 85.2%, 15.9%);
+    border-right: 1px solid hsl(200, 85.2%, 15.9%);
+    border-bottom: 1px solid hsl(200, 85.2%, 15.9%);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    width: 78%;
+}
+
+.left-side-section {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    width: 50%;
+    border-right: 1px solid hsl(200, 85.2%, 15.9%);
+}
+
+.section-title-name {
+    align-self: center;
+    color: hsl(200, 85.2%, 15.9%);
+}
+
+
+
+
+.select-position {
+    height: 30px;
+    width: 70%;
+    margin-bottom: 15.9%;
+    padding-left: 5px;
+    background-color: hsl(199, 74%, 93%);
+    border-radius: 5px 5px 0px 0px;
+    border: 1px solid hsl(200, 85.2%, 15.9%);
+    font-size: 14px;
+    color: hsl(200, 85.2%, 15.9%);
+}
+.middle-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.middle-side-section {
+    width: 25%;
+    border-right: 1px solid hsl(200, 85.2%, 15.9%);
+}
+
+.right-side-section {
+    width: 25%;
+    padding-top: -20px;
+    display: flex;
+    justify-content: baseline;
+    flex-direction: column;
+}
+
+.section-line {
+    border-bottom: 1px solid hsl(200, 85.2%, 15.9%);
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.emp-content {
+    width: 80%;
+    margin-left: -20px;
+    max-height: 500px;
+    overflow-y: scroll;
+    padding: 0 0 5px 20px;
+}
+
+.emp-content::-webkit-scrollbar {
+    width: 5px;
+    overflow-y: auto;
+}
+
+.emp-content::-webkit-scrollbar-track {
+    background-color: hsl(200, 100%, 89%);
+    ;
+    border-radius: 15px;
+}
+
+.emp-content::-webkit-scrollbar-thumb {
+    background-color: hsl(200, 85.2%, 15.9%);
+    border-radius: 15px
+}
+
+.emp-item {
+    display: flex;
+    background-color: hsl(210, 86%, 91%);
+    height: 50px;
+    margin-bottom: -1px;
+    border-bottom: 1px solid silver;
+    border-top: 1px solid silver;
+    -webkit-transition:
+        margin 0.5s,
+        font-weight 0.5s;
+    transition:
+        font-weight 0.5s,
+        margin 0.5s;
+}
+
+.emp-item:hover {
+    cursor: pointer;
+    margin: 0 0 -1px -15px;
+    font-weight: bold;
+}
+
+.emp-data {
+    display: flex;
+    justify-content: end;
+    align-self: center;
+    margin-left: 20px;
+    width: 100px;
+    padding-right: 20px;
+}
+
+.name-data {
+    display: flex;
+    justify-content: start;
+    align-self: center;
+    padding-left: 20px;
+}
+
+.right-sector {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    width: 60%;
+}
+.left-sector {
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+}
+
+.left-sector-user {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    width: 60%;
+}
+
+.right-sector-user {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    width: 40%;
+}
+
+.usr-data {
+    display: flex;
+    justify-content: start;
+    align-self: center;
+    margin-left: 20px;
+    width: 100px;
+    padding-right: 20px;
+}
+
+.rows-box {
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+}
+
+.section-input {
+    height: 30px;
+    margin-top:5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 35%;
+    background-color: hsl(199, 74%, 93%);
+    padding-left: 12px;
+    border-radius: 5px 5px 0px 0px;
+    border: 1px solid hsl(200, 85.2%, 15.9%);
+    font-size: 14px;
+    color: hsl(200, 85.2%, 15.9%);
+}
+
+.section-button {
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+    margin-right: 1rem;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    background-color: hsl(200, 85.2%, 15.9%);
+    color: white;
+}
+
+.section-button:hover {
+    color: wheat;
+    cursor: pointer;
+}
+
+.section-button:active {
+    background: hsl(200, 86%, 35%);
+    color: #fff;
+}
+
+.emp-content-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.emp-section {
+    display: none;
+    opacity: 0;
+}
+
+.visible-on {
+    display: block;
+    opacity: 1;
+    transition-duration: 0.7s;
+    transition-behavior: allow-discrete;
+
+    @starting-style {
+        opacity: 0;
+    }
+}
+
+.emp-selected {
+    background-color: hsl(200, 85.2%, 15.9%) !important;
+    color: white;
+    margin-left: -15px;
+    font-weight: bold;
+}
+
+.notification-item {
+    display: flex;
+    justify-content: space-between;
+    background-color: hsl(210, 86%, 91%);
+    height: 50px;
+    margin-bottom: -1px;
+    border-bottom: 1px solid silver;
+    border-top: 1px solid silver;
+    -webkit-transition:
+        margin 0.5s,
+        font-weight 0.5s;
+    transition:
+        font-weight 0.5s,
+        margin 0.5s;
+}
+
+.notification-item:hover {
+    cursor: pointer;
+    margin: 0 0 -1px -15px;
+    font-weight: bold;
+}
+
+.notification-div {
+    margin: 25px;
+}
+
+.notification-div-left {
+    width: 65%;
+    border-top: 1px solid hsl(200, 85.2%, 15.9%);
+}
+
+.notification-div-right {
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    border-left: 1px solid hsl(200, 85.2%, 15.9%);
+    border-top: 1px solid hsl(200, 85.2%, 15.9%);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.notification-title {
+    margin: 10px;
+    margin-left: 10%;
+    height: 30px;
+    width: 40%;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+.notification-text {
+    margin: 10px;
+    margin-left: 10%;
+    padding: 10px;
+    font-size: 16px;
+    resize: none;
+    font-family: 'Roboto',
+        sans-serif;;
+}
+
+.notification-content {
+    padding: 30px 20px 30px 20px;
+    color: hsl(200, 85.2%, 15.9%);
+    border-bottom: 1px  solid hsl(200, 85.2%, 15.9%);
+    border-right: 1px  solid hsl(200, 85.2%, 15.9%);
+    border-left: 1px  solid hsl(200, 85.2%, 15.9%);
+}
+
+.notification-left-section {
+
+}
+.spec-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 17px 5px 20px 5px;
+}
+
+.done-section {
+    color: rgb(10, 223, 10);
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    margin-top: 1px;
+    margin-left: 5px;
+}

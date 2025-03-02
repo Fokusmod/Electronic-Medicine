@@ -1,0 +1,35 @@
+.find-box {
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    width: 78%;
+}
+
+.find-title {
+    display: flex;
+    justify-content: center;
+    width: 400px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: hsl(200, 85.2%, 15.9%);
+    padding: 10px;
+    border: 1px solid rgb(133, 132, 132);
+    color: white;
+    border-radius: 5px 5px 0 0;
+}
+
+.find-findbox {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.find-input {
+    height: 60%;
+    width: 250px;
+    outline: none;
+    padding: 0.5rem;
+}

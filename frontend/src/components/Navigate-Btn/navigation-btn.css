@@ -1,0 +1,104 @@
+.top-navigation {
+    position: inherit;
+    margin-left: -60px;
+    margin-top: -63px;
+    border: none;
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+    padding-left: 10px;
+    transition: .2s linear;
+    color: white;
+    clip-path: polygon(50% 0%, 40% 25%, 60% 26%);
+    background-color: hsl(199, 68%, 83%);
+}
+
+.back-navigation {
+    position: inherit;
+    top: 5.7%;
+    margin-left: -20px;
+    border: none;
+    width: 100px;
+    height: 30px;
+    font-weight: bold;
+    padding-left: 10px;
+    transition: .2s linear;
+    color: white;
+    clip-path: polygon(5% 50%, 15% 80%, 15% 20%);
+    background-color: hsl(199, 68%, 83%);
+}
+
+
+.top-btn-div {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    position: fixed;
+    left: 3.8%;
+    top: 13.8%;
+    display: none;
+}
+
+.back-btn-div {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    position: fixed;
+    left: 3.8%;
+    top: 13.8%;
+    display: none;
+}
+
+.to-top-btn-text {
+    color: silver;
+    position: fixed;
+    left: 3.8%;
+    top: 5.9%;
+    padding: 4px;
+    font-weight: bold;
+    transition: .2s linear;
+}
+.to-top-btn-text:hover {
+    cursor: pointer;
+    color: rgb(100, 100, 100);
+}
+
+.top-btn-div:hover .top-navigation {
+    background-color: hsl(199, 93%, 17%);
+}
+
+.back-btn-div:hover .back-navigation{
+    background-color: hsl(199, 93%, 17%);
+}
+
+.active {
+    display: block;
+}
+
+.back-step {
+    position: relative;
+    height: 30px;
+    width: 200px;
+    text-align: center;
+    padding-top: 5px;
+    background-color: hsl(199, 100%, 73%);
+    color: hsl(199, 93%, 17%);
+    font-weight: bold;
+    clip-path: polygon(100% 0%, 92% 50%, 100% 100%, 9% 100%, 0% 50%, 11% 0);
+}
+
+.back-step:hover {
+    cursor: pointer;
+    color: white;
+    background-color: hsl(199, 94%, 36%);
+}
+
+@media screen and (max-width: 1400px) and (min-width: 300px) {
+    .top-navigation {
+        top: 0;
+    }
+    
+    .to-top-btn-text {
+        top: 0;
+    }
+}

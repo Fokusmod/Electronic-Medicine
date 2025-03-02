@@ -1,0 +1,196 @@
+
+.appoint-head {
+    display: flex;
+    justify-content: center;
+    width: 1100px;
+    margin: auto;
+    margin-top: 65px;
+    background-color: white
+}
+
+.appoint-reserv {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10%;
+    width: 1100px
+}
+
+.appoint-reserv-stage {
+    display: flex;
+    align-items: start;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+    border-top: 1px solid silver;
+    border-bottom: 1px solid silver;
+}
+
+.stage-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 33.3%;
+    color: white;
+    font-weight: bold;
+    clip-path: polygon(90% 0, 100% 49%, 90% 98%, 0 100%, 0 0);
+    background-color: hsl(200, 84%, 44%);
+}
+
+.complete {
+    clip-path: polygon(100% 0, 100% 49%, 100% 100%, 0 100%, 0 0);
+    border-right: 1px solid silver;
+    background-color: hsl(200, 85.2%, 15.9%);
+}
+
+.footer-section {
+    width: 1100px;
+    margin: auto;
+} 
+
+.hide {
+    display: none;
+}
+
+.disabled {
+    opacity: 0.5;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.appoint-reserv-content {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.appoint-reserv-title {
+    margin-top: 5%;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.appoint-reserv-data {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+}
+
+.appoint-column {
+    flex-direction: column;
+    justify-content: start;
+    width: 14.7%;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.label {
+    margin-left: 10px;
+}
+
+.data-item {
+    width: 25%;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 5px;
+    width: 15%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.data-item:hover {
+    cursor: pointer;
+    color: white;
+    background-color: hsl(200, 85%, 32%);
+   
+}
+
+
+.specialist-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-bottom: 1px solid silver;
+    margin-bottom: 20px;
+}
+
+.appoint-spesialist-item {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    margin-bottom: 20px;
+}
+
+
+.appoint-item-photo {
+    height: 260px;
+    width: 200px;
+}
+
+.appoint-item-bottom {
+    background-color: hsl(200, 92%, 75%);
+}
+
+.appoint-item-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+.appoint-item-position {
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+.appoint-checkbox {
+    margin-left: 20px;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+}
+
+.centered-end {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+
+}
+
+.centered-left {
+    padding-right: 50px;
+}
+
+.appoint-input {
+    height: 30px;
+    width: 200px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 15px;
+    background-color: hsl(199, 100%, 95%);
+    border: 1px solid hsl(200, 85%, 32%);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.about-date-time { 
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.not-have-this-spec {
+    margin: auto;
+    margin-bottom: 50px;
+}

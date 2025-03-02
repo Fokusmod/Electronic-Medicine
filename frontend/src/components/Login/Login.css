@@ -1,0 +1,216 @@
+
+
+.auth-div {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 160px;
+    width: 500px;
+    height: 600px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    border: 1px solid hsl(202, 45%, 86%);
+}
+
+.auth-image-div {
+    background-color: hsl(200, 84.9%, 10.4%);
+    border-radius: 15px 15px 0px 0px;
+}
+
+.auth-logo {
+    width: 300px;
+    margin-left: 100px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+.auth-button-div {
+    display: flex;
+    justify-content:space-between;
+}
+
+.auth-button {
+    border: none;
+    background-color: white;
+    font-size: 16px;
+    color: hsl(200, 84.9%, 10.4%);
+    border-right: 1px solid hsl(202, 45%, 86%);
+    border-bottom: 1px solid hsl(202, 45%, 86%);
+    width: 50%;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+}
+
+.auth-button:hover {
+    cursor: pointer;
+}
+
+.auth-button-active {
+    text-decoration-line: underline;
+}
+
+.auth-section {
+    box-sizing: border-box;
+    width: 500px;
+    height: 41%;
+}
+
+.auth-section-hide {
+    display: none;
+}
+
+.auth-section-visible {
+    display: flex;
+    justify-content: center;
+}
+
+.auth-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.auth-label {
+    font-size: 16px;
+    color: hsl(200, 84.9%, 10.4%);
+    margin-left: 25%;
+    margin-right: auto;
+}
+.auth-label-checkbox {
+    font-size: 15px;
+    color: hsl(200, 84.9%, 10.4%);
+    margin-left: 1%;
+
+}
+
+.auth-checkbox {
+    width: 15px;
+    height: 16px;
+    accent-color: hsl(200, 83%, 21%);
+    margin-left: 25%;
+}
+
+.auth-input {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: hsl(213, 80%, 94%);
+    outline: none;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    font-size: 14px;
+    width: 50%;
+}
+
+.auth-submit {
+    width: 60%;
+    height: 35px;
+    margin-bottom: auto;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: hsl(200, 84.9%, 10.4%);
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.auth-submit:hover {
+    cursor: pointer;
+    background-color: hsl(200, 85%, 23%);
+}
+
+.auth-link {
+    border: none;
+    background-color: white;
+    font-size: 15px;
+    text-decoration-line: underline;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.auth-link:hover {
+    cursor: pointer;
+    color: hsl(200, 94%, 48%);
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.validator-section {
+    margin-top: 5%;
+    height: 30px;
+    text-align: center;
+    color: red;
+}
+
+.margin-auth {
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.margin-reg {
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.box {
+ width: 100%;
+}
+
+.check-div {
+    display: flex;
+}
+
+.activate-head {
+    margin-top: 10%;
+}
+
+.default-validator {
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: center;
+    color: rgb(47, 189, 255);
+}
+
+.activate-validator {
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: center;
+    color: red;
+}
+
+.activate-input {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: hsl(213, 80%, 94%);
+    outline: none;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    font-size: 14px;
+    width: 50%;
+}
+
+.activate-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20%;
+}

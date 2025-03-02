@@ -1,0 +1,40 @@
+.not-found-head {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 10%;
+    background-color: hsl(200, 86%, 86%);
+    height: 100%;
+    width: 100%;
+    z-index: 999999999;
+}
+
+.not-found-info-div {
+    background-color: hsl(199, 100%, 95%);
+    height: 400px;
+    width: 700px;
+    border-radius: 15px;
+}
+
+.not-found-title {
+    margin-top: 50px;
+    font-size: 30px;
+    color: rgb(241, 56, 56);
+}
+
+.not-found-action {
+    margin-top: 50px;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: underline;
+    color: rgb(0, 138, 180);
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.not-found-action:hover {
+    font-weight: bold;
+}

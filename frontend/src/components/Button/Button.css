@@ -1,0 +1,21 @@
+.button {
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: hsl(200, 85.2%, 15.9%);
+    color: white;
+    margin-top: 5px;
+}
+
+.button:hover {
+    color: wheat;
+    cursor: pointer;
+}
+
+.button:active {
+    background: hsl(200, 86%, 35%);
+    color: #fff;
+}

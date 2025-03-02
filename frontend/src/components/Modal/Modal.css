@@ -1,0 +1,65 @@
+dialog {
+    width: 700px;
+    height: 230px;
+    margin: 14rem auto;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 100;
+    touch-action: none;
+    background-color: hsl(205, 100%, 91%);
+}
+
+.modal-title {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(3, 110, 182);
+}
+
+.modal-data {
+    margin-bottom: 20px;
+    color: rgb(0, 60, 100);
+    text-align: center;
+}
+
+.modal-message {
+    margin-bottom: 20px;
+    color: rgb(0, 60, 100);
+    text-align: center;
+}
+
+.redirect-btn {
+   display: flex;
+   justify-content: center;
+}
+
+.regModal { 
+    display: none;
+    background-color: rgb(150, 220, 253);
+    position: fixed;
+    top: 12%;
+    right: 1%;
+    width: 500px;
+    border-radius: 10px 10px 10px 10px;
+    border: 1px solid rgb(65, 194, 253);
+}
+
+.reg-message {
+    padding: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 15px;
+}
+
+.show {
+    display: flex;
+    animation: fadeInRightBig;
+    animation-duration: 1s;
+}
+
+
+
+
