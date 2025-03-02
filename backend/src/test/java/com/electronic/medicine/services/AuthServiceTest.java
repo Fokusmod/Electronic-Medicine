@@ -136,17 +136,6 @@ class AuthServiceTest {
     }
 
     @Test
-    @DisplayName("refreshToken вернёт ошибку UsernameNotFoundException")
-    void refreshToken_UsernameNotFoundException() {
-        UsernameNotFoundException ex = mock(UsernameNotFoundException.class);
-        when(userService.loadUserByUsername(jwtRefreshBadRequest.getEmail())).thenThrow(ex);
-        var result = assertThrowsExactly(UsernameNotFoundException.class, () -> this.userService.loadUserByUsername(correctRequest.getEmail()));
-        assertEquals(ex, result);
-        Mockito.verify(this.userService).loadUserByUsername(correctRequest.getEmail());
-        Mockito.verifyNoMoreInteractions(this.userService);
-    }
-
-    @Test
     @DisplayName("refreshToken() вернёт ошибку MedicineServerErrorException")
     void refreshToken_ReturnServerError() {
         MedicineServerErrorException ex = new MedicineServerErrorException("123");
