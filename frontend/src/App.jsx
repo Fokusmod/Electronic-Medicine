@@ -19,7 +19,7 @@ import NotFoundPage from "./components/ErrorPage/NotFoundPage.jsx";
 import CheckActivationCode from "./components/Login/CheckActivationCode.jsx";
 
 export default function App() {
-  /* localStorage.setItem("host", "http://localhost:8080"); */
+  /*  localStorage.setItem("host", "http://localhost:8080"); */
   localStorage.setItem("host", "http://90.156.158.203/api");
 
   return (
