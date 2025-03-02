@@ -81,7 +81,9 @@ export default function Employye() {
                         key={i}
                         firstName={data.firstName}
                         lastName={data.lastName}
-                        position={data.specialities[0].title}
+                        position={
+                          data.specialities ? data.specialities[0].title : null
+                        }
                         status={data.status}
                         id={data.id}
                         specs={specialisation}
