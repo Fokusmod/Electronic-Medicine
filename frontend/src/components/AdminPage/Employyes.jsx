@@ -86,7 +86,10 @@ export default function Employye() {
                         }
                         lastName={data.lastName}
                         position={
-                          data.specialities ? data.specialities[0].title : null
+                          data.specialities !== null &&
+                          data.specialities !== undefined
+                            ? data.specialities[0].title
+                            : null
                         }
                         status={data.status}
                         id={data.id}
