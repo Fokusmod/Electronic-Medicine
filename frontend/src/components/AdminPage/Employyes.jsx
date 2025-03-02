@@ -79,7 +79,11 @@ export default function Employye() {
                     return (
                       <EmployyeItem
                         key={i}
-                        firstName={data.firstName}
+                        firstName={
+                          data.firstName !== null
+                            ? data.firstName
+                            : data.username
+                        }
                         lastName={data.lastName}
                         position={
                           data.specialities ? data.specialities[0].title : null

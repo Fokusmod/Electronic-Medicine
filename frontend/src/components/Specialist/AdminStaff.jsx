@@ -30,15 +30,17 @@ export default function AdminStaff() {
       <div className="admin-staff-section">
         {isReadyAdmins === true
           ? adminData.map(function (data) {
-              return (
-                <AdminStaffItem
-                  id={data.id}
-                  key={data.id}
-                  fullname={data.firstName + " " + data.lastName}
-                  position={data.position}
-                  photo={data.photoUrl}
-                />
-              );
+              if (data.photoUrl != null) {
+                return (
+                  <AdminStaffItem
+                    id={data.id}
+                    key={data.id}
+                    fullname={data.firstName + " " + data.lastName}
+                    position={data.position}
+                    photo={data.photoUrl}
+                  />
+                );
+              }
             })
           : ""}
       </div>

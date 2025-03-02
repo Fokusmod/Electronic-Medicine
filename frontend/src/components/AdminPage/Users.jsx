@@ -64,36 +64,38 @@ export default function Users() {
   }
 
   return (
-    <>
-      {createPortal(
-        <div className="admin-section">
-          <FindBox
-            title="Пользователи сайта"
-            placeholder="Найти пользователя"
-          />
-          <div className="emp-content">
-            <div className="emp-content-box">
-              {isReady &&
-                users.map(function (data, i) {
-                  return (
-                    <UserItem
-                      key={i}
-                      firstName={data.firstName}
-                      lastName={data.lastName}
-                      email={data.email}
-                      position={data.roles[0].title}
-                      approve="false"
-                      id={data.id}
-                      specs={specialisation}
-                      admin={checkAdminRole(data.roles)}
-                    />
-                  );
-                })}
+    document.getElementById("pageAdmin") && (
+      <>
+        {createPortal(
+          <div className="admin-section">
+            <FindBox
+              title="Пользователи сайта"
+              placeholder="Найти пользователя"
+            />
+            <div className="emp-content">
+              <div className="emp-content-box">
+                {isReady &&
+                  users.map(function (data, i) {
+                    return (
+                      <UserItem
+                        key={i}
+                        firstName={data.firstName}
+                        lastName={data.lastName}
+                        email={data.email}
+                        position={data.roles[0].title}
+                        approve="false"
+                        id={data.id}
+                        specs={specialisation}
+                        admin={checkAdminRole(data.roles)}
+                      />
+                    );
+                  })}
+              </div>
             </div>
-          </div>
-        </div>,
-        document.getElementById("pageAdmin")
-      )}
-    </>
+          </div>,
+          document.getElementById("pageAdmin")
+        )}
+      </>
+    )
   );
 }

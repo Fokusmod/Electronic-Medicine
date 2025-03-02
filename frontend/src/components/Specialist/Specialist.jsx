@@ -50,15 +50,17 @@ export default function Specialist() {
             {isReadySpecialist &&
               specialistData !== "" &&
               specialistData.map(function (data) {
-                return (
-                  <SpecialistItem
-                    id={data.id}
-                    key={data.id}
-                    fullname={data.firstName + " " + data.lastName}
-                    position={data.specialities[0].title}
-                    photo={data.photoUrl}
-                  />
-                );
+                if (data.photoUrl != null) {
+                  return (
+                    <SpecialistItem
+                      id={data.id}
+                      key={data.id}
+                      fullname={data.firstName + " " + data.lastName}
+                      position={data.specialities[0].title}
+                      photo={data.photoUrl}
+                    />
+                  );
+                }
               })}
           </div>
         </div>

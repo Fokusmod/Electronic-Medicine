@@ -14,6 +14,8 @@ public class SpecialistDto {
 
     private Long id;
 
+    private String username;
+
     private String firstName;
 
     private String lastName;
@@ -26,8 +28,9 @@ public class SpecialistDto {
 
     private List<RoleDto> roles;
 
-    public SpecialistDto(Long id, String firstName, String lastName, Photo photoUrl, Set<Speciality> specialities, Status status, Set<Role> roles) {
+    public SpecialistDto(Long id, String username, String firstName, String lastName, Photo photoUrl, Set<Speciality> specialities, Status status, Set<Role> roles) {
         this.id = id;
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.photoUrl = photoUrl != null ?  photoUrl.getTitle(): null;

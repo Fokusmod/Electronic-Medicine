@@ -25,6 +25,7 @@ public class StaffController {
     public List<SpecialistDto> getAllStaff() {
         return staffService.getAllStaff().stream().map(specialist -> new SpecialistDto(
                 specialist.getId(),
+                specialist.getEmail(),
                 specialist.getFirstName(),
                 specialist.getLastName(),
                 specialist.getPhotoUrl(),
@@ -37,6 +38,7 @@ public class StaffController {
     public List<SpecialistDto> getAllSpecialists() {
         return staffService.getAllStaff().stream().map(specialist -> new SpecialistDto(
                 specialist.getId(),
+                specialist.getEmail(),
                 specialist.getFirstName(),
                 specialist.getLastName(),
                 specialist.getPhotoUrl(),
@@ -61,6 +63,7 @@ public class StaffController {
     public List<SpecialistDto> findSpecialistsByParam(@PathVariable String param) {
         return staffService.getAllSpecialistByParam(param).stream().map(spec -> new SpecialistDto(
                 spec.getId(),
+                spec.getEmail(),
                 spec.getFirstName(),
                 spec.getLastName(),
                 spec.getPhotoUrl(),
@@ -87,6 +90,7 @@ public class StaffController {
                 .filter(item -> !item.getEmail().equals("admin"))
                 .map(admin -> new SpecialistDto(
                         admin.getId(),
+                        admin.getEmail(),
                         admin.getFirstName(),
                         admin.getLastName(),
                         admin.getPhotoUrl(),
