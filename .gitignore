@@ -1,7 +1,6 @@
 node_modules
 node_modules
 
-prod.env
 .idea
 *.iws
 *.iml
