@@ -15,8 +15,8 @@ public class MailSender {
     private final JavaMailSender javaMailSender;
 
     //TODO ПЕРЕМЕННЫЕ КОНФИГИ
-//    private String username = System.getenv("SPRING_MAIL_USERNAME");
-    private String username = System.getenv("MAIL_USERNAME");
+    private String username = System.getenv("SPRING_MAIL_USERNAME");
+//    private String username = System.getenv("MAIL_USERNAME");
 
     public void sendActivateCodeMessage(String emailTo, String subject, String message) throws MessagingException, UnsupportedEncodingException {
         MimeMessage mimeMessage = this.javaMailSender.createMimeMessage();
