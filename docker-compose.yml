@@ -1,5 +1,5 @@
 networks:
-  dev:
+  prod:
     name: prod
 
 services:
