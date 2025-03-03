@@ -4,7 +4,7 @@ networks:
 
 services:
   db:
-    env-file: "prod.env"
+    env_file: "prod.env"
     container_name: db
     image: postgres:latest
     ports:
@@ -29,11 +29,11 @@ services:
     networks:
       - prod
   backend:
-    env-file: "prod.env"
     build:
       context: ./backend
     networks:
       - prod
+    env_file: "prod.env"
   frontend:
     build:
       context: ./frontend
