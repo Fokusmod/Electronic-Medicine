@@ -11,6 +11,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.data.util.Optionals;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -33,8 +34,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class UserService implements UserDetailsService {
 
-    //TODO СЕРВЕР ССЫЛКА
-    private final static String HOST = "http://90.156.158.203/api/activate";
+    @Value("${api.url}")
+    private static String HOST;
 
     private final int passwordLength = 6;
 

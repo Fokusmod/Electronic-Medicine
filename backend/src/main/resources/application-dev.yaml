@@ -31,6 +31,8 @@ jwt:
     lifetimeAccess: 5m
     refreshSecret: "${RefreshSecret}"
     lifetimeRefresh: 30m
+api:
+  url: "http://localhost:5173/activate"
 
 
 
