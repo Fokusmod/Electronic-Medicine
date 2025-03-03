@@ -1,0 +1,40 @@
+logging:
+  level:
+    com:
+      electronic:
+        medicine: debug
+spring:
+  jpa:
+  datasource:
+    database: POSTGRESQL
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://db:5432/postgres
+    username: "${SPRING_DATASOURCE_USERNAME}"
+    password: "${SPRING_DATASOURCE_PASSWORD}"
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    contexts: dev
+  mail:
+    host: smtp.mail.ru
+    port: 465
+    protocol: smtps
+mail:
+  debug: false
+  username: "${SPRING_MAIL_USERNAME}"
+  password: "${SPRING_MAIL_PASSWORD}"
+jwt:
+  secret:
+    accessSecret: "${ACCESS_SECRET}"
+    lifetimeAccess: 5m
+    refreshSecret: "${REFRESH_SECRET}"
+    lifetimeRefresh: 30m
+api:
+  url: "http://90.156.158.203/api/activate"
+
+
+
+
+

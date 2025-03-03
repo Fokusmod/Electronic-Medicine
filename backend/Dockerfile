@@ -4,7 +4,7 @@ FROM maven:3.8.6-openjdk-18 AS build
 COPY pom.xml ./
 COPY src ./src
 
-RUN mvn install -DskipTests
+RUN mvn install -DskipTests --spring.profiles.active=prod
 
 FROM openjdk:17-jdk-slim
 ARG JAR_FILE=target/*.jar
