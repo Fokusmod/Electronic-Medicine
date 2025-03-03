@@ -9,7 +9,7 @@ RUN mvn install -DskipTests
 FROM openjdk:17-jdk-slim
 ARG JAR_FILE=target/*.jar
 COPY --from=build ./target/medicine-0.0.1-SNAPSHOT.jar app.jar
-
+ENV SPRING_PROFILES_ACTIVE=prod
 COPY . .
-ENV SPRING_PROFILES_ACTIVE=dev
+
 ENTRYPOINT ["java", "-jar", "/app.jar"]
