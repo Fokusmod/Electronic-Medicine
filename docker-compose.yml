@@ -3,6 +3,7 @@ networks:
     name: prod
 
 services:
+  env-file: "prod.env"
   db:
     container_name: db
     image: postgres:latest
