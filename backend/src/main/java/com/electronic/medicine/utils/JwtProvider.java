@@ -22,13 +22,14 @@ import java.util.stream.Collectors;
 @Component
 public class JwtProvider {
 
-
-    private final String jwtAccessSecret = System.getenv("AccessSecret");
+    @Value("${jwt.secret.accessSecret}")
+    private String jwtAccessSecret;
 
     @Value("${jwt.secret.lifetimeAccess}")
     private Duration jwtAccessLifetime;
 
-    private final String jwtRefreshSecret = System.getenv("RefreshSecret");
+    @Value("${jwt.secret.refreshSecret}")
+    private String jwtRefreshSecret;
 
     @Value("${jwt.secret.lifetimeRefresh}")
     private Duration jwtRefreshLifetime;

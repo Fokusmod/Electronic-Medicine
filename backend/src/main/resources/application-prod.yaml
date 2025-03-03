@@ -8,12 +8,11 @@ spring:
   datasource:
     database: POSTGRESQL
     driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://db:5432/postgres
+    username: "${SPRING_DATASOURCE_USERNAME}"
+    password: "${SPRING_DATASOURCE_PASSWORD}"
     hibernate:
       dialect: org.hibernate.dialect.PostgreSQLDialect
-      ddl-auto: none
-    url: jdbc:postgresql://localhost:5000/postgres
-    username: admin
-    password: admin
   liquibase:
     enabled: true
     change-log: classpath:db/changelog/db.changelog-master.yaml
@@ -24,11 +23,15 @@ spring:
     protocol: smtps
 mail:
   debug: false
-
+  username: "${SPRING_MAIL_USERNAME}"
+  password: "${SPRING_MAIL_PASSWORD}"
 jwt:
   secret:
+    accessSecret: "${ACCESS_SECRET}"
     lifetimeAccess: 5m
+    refreshSecret: "${REFRESH_SECRET}"
     lifetimeRefresh: 30m
+
 
 
 

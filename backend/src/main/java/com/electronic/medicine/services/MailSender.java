@@ -3,6 +3,7 @@ package com.electronic.medicine.services;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -14,9 +15,8 @@ public class MailSender {
 
     private final JavaMailSender javaMailSender;
 
-    //TODO ПЕРЕМЕННЫЕ КОНФИГИ
-    private String username = System.getenv("SPRING_MAIL_USERNAME");
-//    private String username = System.getenv("MAIL_USERNAME");
+    @Value("${mail.username}")
+    private String username;
 
     public void sendActivateCodeMessage(String emailTo, String subject, String message) throws MessagingException, UnsupportedEncodingException {
         MimeMessage mimeMessage = this.javaMailSender.createMimeMessage();

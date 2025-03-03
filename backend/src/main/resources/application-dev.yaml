@@ -1,0 +1,38 @@
+logging:
+  level:
+    com:
+      electronic:
+        medicine: debug
+spring:
+  jpa:
+  datasource:
+    database: POSTGRESQL
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5000/postgres
+    username: "${DB_USERNAME}"
+    password: "${DB_PASSWORD}"
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    contexts: dev
+  mail:
+    host: smtp.mail.ru
+    port: 465
+    protocol: smtps
+mail:
+  debug: false
+  username: "${MAIL_USERNAME}"
+  password: "${MAIL_PASSWORD}"
+jwt:
+  secret:
+    accessSecret: "${AccessSecret}"
+    lifetimeAccess: 5m
+    refreshSecret: "${RefreshSecret}"
+    lifetimeRefresh: 30m
+
+
+
+
+
