@@ -16,4 +16,4 @@ jobs:
        with:
          maven-version: 3.8.2
      - name: start all medicine app tests
-       run: mvn clean install
+       run: mvn clean install */pom.xml
