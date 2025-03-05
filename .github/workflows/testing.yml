@@ -3,8 +3,8 @@ on: push
 jobs:
   medicine_app_test:
     runs-on: ubuntu-latest
-      steps:
-        - name: get repository code
-          uses: actions/checkout@v3
-        - name: run install 
-          run: mvn install 
+    steps:
+     - name: get repository code
+       uses: actions/checkout@v3
+     - name: run install 
+       run: mvn install 
