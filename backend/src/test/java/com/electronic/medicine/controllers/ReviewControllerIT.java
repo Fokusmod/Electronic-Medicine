@@ -11,7 +11,6 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
-
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @Transactional
