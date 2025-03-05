@@ -48,6 +48,21 @@ class UserControllerIT {
     }
 
     @Test
+    void registrationUsersIsOk() throws Exception {
+        RegistrationUserDto dto = new RegistrationUserDto();
+        dto.setEmail("kally32rus@mail.ru");
+        dto.setPassword("newpassword");
+        dto.setConfirmPassword("newpassword");
+        String json = new ObjectMapper().writeValueAsString(dto);
+        var mockBuilder = MockMvcRequestBuilders
+                .post("/registration")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(json);
+        this.mockMvc.perform(mockBuilder).andExpectAll(
+                status().isOk());
+    }
+
+    @Test
     void getAllUserIsForbidden() throws Exception {
         var mockBuilder = MockMvcRequestBuilders
                 .get("/getAllUsers")
