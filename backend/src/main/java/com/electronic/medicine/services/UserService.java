@@ -111,7 +111,8 @@ public class UserService implements UserDetailsService {
             mailSender.sendActivateCodeMessage(user.getEmail(), "Код активации для продолжения регистрации на " +
                     "портале Electronic Medicine", message.toString());
         } catch (Exception e) {
-            throw new MedicineServerErrorException("Указанный вами email адрес не существует.");
+//            throw new MedicineServerErrorException("Указанный вами email адрес не существует.");
+            e.printStackTrace();
         }
     }
 
