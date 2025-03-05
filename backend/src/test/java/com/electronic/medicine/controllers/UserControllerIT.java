@@ -50,7 +50,7 @@ class UserControllerIT {
     @Test
     void registrationUsersIsOk() throws Exception {
         RegistrationUserDto dto = new RegistrationUserDto();
-        dto.setEmail("newuser@mail.ru");
+        dto.setEmail("kallyrus@mail.ru");
         dto.setPassword("newpassword");
         dto.setConfirmPassword("newpassword");
         String json = new ObjectMapper().writeValueAsString(dto);

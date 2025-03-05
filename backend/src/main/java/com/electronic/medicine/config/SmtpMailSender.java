@@ -29,10 +29,8 @@ public class SmtpMailSender {
     @Value("${mail.debug}")
     private String debug;
 
-
-
     @Bean
-    public JavaMailSender createMailSender () {
+    public JavaMailSender javaMailSender () {
         JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();
         javaMailSender.setHost(host);
         javaMailSender.setPort(port);
