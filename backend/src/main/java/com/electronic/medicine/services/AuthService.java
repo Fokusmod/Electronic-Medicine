@@ -3,7 +3,6 @@ package com.electronic.medicine.services;
 import com.electronic.medicine.DTO.*;
 import com.electronic.medicine.entity.User;
 import com.electronic.medicine.exception.MedicineAuthException;
-import com.electronic.medicine.exception.MedicineBadCredential;
 import com.electronic.medicine.exception.MedicineNotFound;
 import com.electronic.medicine.exception.MedicineServerErrorException;
 import com.electronic.medicine.utils.JwtProvider;
@@ -13,8 +12,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Slf4j
 @Service
