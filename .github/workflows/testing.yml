@@ -16,4 +16,4 @@ jobs:
        with:
          maven-version: 3.8.2
      - name: maven tests
-       run: mvn -f */pom.xml clean test
+       run: mvn -f */pom.xml clean install
