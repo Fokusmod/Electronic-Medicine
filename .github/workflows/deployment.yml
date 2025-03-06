@@ -70,8 +70,10 @@ jobs:
     steps:
       - name: ssh check
         run: ssh -V
+      - name: check
+        run: echo "${{ secrets.SSH_HOST }}"
       - name: sigh-in on Selectel
-        run: ssh "${{ secrets.SSH_HOST }}"
+        run: ssh -t "${{ secrets.SSH_HOST }}"
       - name: change directory
         run: cd Electronic-Medicine
       - name: github pull
