@@ -6,7 +6,6 @@ on:
 env:
   SERVER_HOST: 90.156.158.203
   SERVER_USER: root
-  SERVER_PATH: https://github.com/Fokusmod/Electronic-Medicine
 
 jobs:
 
@@ -28,6 +27,7 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_rsa "${{ secrets.SSH_HOST }}" "
             cd Electronic-Medicine; 
+            git config --global --add safe.directory /root/Electronic-Medicine;
             git pull; 
             docker-compose up --build -d
           "
