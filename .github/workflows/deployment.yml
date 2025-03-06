@@ -67,7 +67,6 @@ jobs:
       - name: maven install
         run: mvn -f */pom.xml clean install -DskipTests
   deploy:
-    env:
     needs: build
     runs-on: ubuntu-latest
     steps:
