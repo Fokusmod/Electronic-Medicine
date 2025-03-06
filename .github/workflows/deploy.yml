@@ -24,15 +24,15 @@ jobs:
       - name: Test SSH connection
         run: ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no git@github.com "echo 'SSH connection successful'"
 
-      - name: Run script on server
-        run: |
-          ssh -i ~/.ssh/id_rsa "${{ secrets.SSH_HOST }}" "
-            cd Electronic-Medicine; 
-            git config --global --add safe.directory /root/Electronic-Medicine;
-            git pull; 
-            docker-compose up --build -d
-          "
-        
+#      - name: Run script on server
+#        run: |
+#          ssh -i ~/.ssh/id_rsa "${{ secrets.SSH_HOST }}" "
+#            cd Electronic-Medicine;
+#            git config --global --add safe.directory /root/Electronic-Medicine;
+#            git pull;
+#            docker-compose up --build -d
+#          "
+#
 
 
 
