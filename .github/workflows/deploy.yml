@@ -14,22 +14,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      # Install ssh key
-      - name: Install SSH Key
-        uses: shimataro/ssh-key-action@v2.3.1
-        with:
-          key: "${{ secrets.SSH_KEY }}"
-          known_hosts: "just-a-placeholder-so-we-dont-get-errors"
-
-      - name: Generate auth hosts
-        run: ssh-keyscan -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
-
-      # Deploy
-      - name: sigh-in cloud
+      - name: Set up SSH
         run: |
-          rsync --archive --compress --progress . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H "${{ env.SERVER_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Run script on server
+        run: |
+          ssh -i ~/.ssh/id_rsa "${{ secrets.SSH_HOST }}" "bash -s" < cd Electronic-Medicine 
           docker compose up --build -d
         
 
