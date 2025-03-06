@@ -29,7 +29,6 @@ jobs:
             cd Electronic-Medicine;
             docker-compose stop || { echo 'Stop failed, exiting...'; exit 1; };
             git pull;
-            docker-compose stop || { echo 'Stop failed, exiting...'; exit 1; };
             docker-compose up --build -d;
           
             # Wait for the containers to be healthy
