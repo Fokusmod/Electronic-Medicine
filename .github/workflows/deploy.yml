@@ -28,13 +28,12 @@ jobs:
 
       # Deploy
       - name: sigh-in cloud
-        run: ssh "${{ secrets.SSH_HOST }}"
-      - name: change directory
-        run: cd Electronic-Medicine
-      - name: github pull
-        run: git pull
-      - name: build project to cloud
-        run: docker compose up --build -d
+        run: | 
+          ssh "${{ secrets.SSH_HOST }}" 
+          cd Electronic-Medicine
+          git pull
+          docker compose up --build -d
+        
 
 
 
