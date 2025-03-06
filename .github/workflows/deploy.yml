@@ -27,7 +27,14 @@ jobs:
         run: ssh-keyscan -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
 
       # Deploy
-      - run: rsync --archive --compress --progress . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}
+      - name: sigh-in cloud
+        run: ssh "${{ secrets.SSH_HOST }}"
+      - name: change directory
+        run: cd Electronic-Medicine
+      - name: github pull
+        run: git pull
+      - name: build project to cloud
+        run: docker compose up --build -d
 
 
 
