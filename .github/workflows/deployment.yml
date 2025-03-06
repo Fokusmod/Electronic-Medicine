@@ -71,7 +71,7 @@ jobs:
       - name: ssh check
         run: ssh -V
       - name: sigh-in on Selectel
-        run: ssh ${{ secrets.SSH_HOST }}
+        run: ssh "${{ secrets.SSH_HOST }}"
       - name: change directory
         run: cd Electronic-Medicine
       - name: github pull
