@@ -2,7 +2,7 @@ name: dev-branch-test
 on:
   push:
     branches:
-      - main
+      - dev
     paths-ignore:
       - '.github/workflows/*'
 jobs:
