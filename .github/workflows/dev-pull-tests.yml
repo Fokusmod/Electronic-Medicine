@@ -2,23 +2,34 @@ name: dev-branch-test
 on:
   push:
     branches:
-      - dev
+      - main
     paths-ignore:
       - '.github/workflows/*'
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-     - name: get repository code
-       uses: actions/checkout@v3
-     - name: setup Java
-       uses: actions/setup-java@v3
-       with: 
-         java-version: 18
-         distribution: corretto
-     - name: setup Maven
-       uses: stCarolas/setup-maven@v5
-       with:
-         maven-version: 3.8.2
-     - name: maven tests
-       run: mvn -f */pom.xml clean verify
+      - name: get repository code
+        uses: actions/checkout@v3
+
+      - name: setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: 18
+          distribution: corretto
+
+      - name: cache maven dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: setup Maven
+        uses: stCarolas/setup-maven@v5
+        with:
+          maven-version: 3.8.2
+
+      - name: maven tests
+        run: mvn -f */pom.xml clean verify
