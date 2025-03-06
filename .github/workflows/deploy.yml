@@ -25,15 +25,15 @@ jobs:
 
       - name: Run script on server
         run: |
-          ssh root@${{ env.SERVER_HOST }} "
-          ssh -i ~/.ssh/id_ed25519 root@90.156.158.203
+          ssh -i ~/.ssh/id_ed25519 root@${{ env.SERVER_HOST }} "
             cd Electronic-Medicine;
             git pull;
-            docker-compose stop;
+            docker-compose stop || { echo 'Stop failed, exiting...'; exit 1; }
             docker-compose up --build -d;
           
-          while ! docker ps | grep -q 'electronic-medicine_backend_1'; do
-          echo 'Waiting for the container to start...';
-          sleep 5;
-          done;
+            # Wait for the containers to be healthy
+            while ! docker ps | grep -q 'electronic-medicine_backend_1'; do
+              echo 'Waiting for the container to start...';
+              sleep 5;
+            done;
           "
