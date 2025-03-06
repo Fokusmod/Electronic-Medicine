@@ -29,6 +29,11 @@ jobs:
           ssh -i ~/.ssh/id_ed25519 root@90.156.158.203
             cd Electronic-Medicine;
             git pull;
-            docker-compose down;
+            docker-compose stop;
             docker-compose up --build -d;
+          
+          while ! docker ps | grep -q 'electronic-medicine_backend_1'; do
+          echo 'Waiting for the container to start...';
+          sleep 5;
+          done;
           "
