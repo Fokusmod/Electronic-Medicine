@@ -18,7 +18,7 @@ jobs:
 
       - name: Run script on server
         run: |
-          ssh root@90.156.158.203 "
+          ssh -o StrictHostKeyChecking=no root@${{ env.SERVER_HOST }} "
             cd Electronic-Medicine;
             git config --global --add safe.directory /root/Electronic-Medicine;
             git pull;
