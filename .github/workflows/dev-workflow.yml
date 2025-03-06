@@ -1,0 +1,22 @@
+name: Test Spring Boot App
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  medicine_app_test:
+    runs-on: ubuntu-latest
+    steps:
+     - name: get repository code
+       uses: actions/checkout@v3
+     - name: setup Java
+       uses: actions/setup-java@v3
+       with: 
+         java-version: 18
+         distribution: corretto
+     - name: setup Maven
+       uses: stCarolas/setup-maven@v5
+       with:
+         maven-version: 3.8.2
+     - name: maven tests
+       run: mvn -f */pom.xml clean verify
