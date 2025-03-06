@@ -71,7 +71,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: sigh-in on Selectel
-        run: ssh ${{ secrets.SSH_HOST }}
+        run: sshpass -p ${{ secrets.SSH_PASSWORD }} ssh ${{ secrets.SSH_HOST }}
       - name: change directory
         run: cd Electronic-Medicine
       - name: github pull
