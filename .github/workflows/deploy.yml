@@ -26,8 +26,7 @@ jobs:
 
       - name: Run script on server
         run: |
-          ssh -i ~/.ssh/id_rsa "${{ secrets.SSH_HOST }}" "bash -s" < cd Electronic-Medicine 
-          docker compose up --build -d
+          ssh -i ~/.ssh/id_rsa "${{ secrets.SSH_HOST }}" "bash -s" < ls 
         
 
 
