@@ -1,4 +1,4 @@
-name: Test Spring Boot App
+name: dev-branch
 on:
   push:
     branches:
