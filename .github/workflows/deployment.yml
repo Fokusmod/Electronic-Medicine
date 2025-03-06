@@ -66,3 +66,16 @@ jobs:
 
       - name: maven install
         run: mvn -f */pom.xml clean install -DskipTests
+  deploy:
+    env:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: sigh-in on Selectel
+        run: ssh ${{ secrets.SSH_HOST }}
+      - name: change directory
+        run: cd Electronic-Medicine
+      - name: github pull
+        run: git pull
+      - name: build project to cloud
+        run: docker compose up --build
