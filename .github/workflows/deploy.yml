@@ -15,7 +15,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
+        with:
+          repository: Fokusmod/Electronic-Medicine
+          ssh-key: ${{ secrets.SSH_KEY }}
       - name: Set up SSH
         run: |
           mkdir -p ~/.ssh
