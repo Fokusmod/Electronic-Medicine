@@ -28,9 +28,6 @@ jobs:
           ssh root@${{ env.SERVER_HOST }} "
           ssh -i ~/.ssh/id_ed25519 root@90.156.158.203
             cd Electronic-Medicine;
-            git config --global --add safe.directory /root/Electronic-Medicine;
-            git pull;
-            docker-compose up --build -d
           "
 #
 
