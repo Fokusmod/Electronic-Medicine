@@ -27,7 +27,6 @@ jobs:
       - name: Run script on server
         run: |
           ssh -i ~/.ssh/id_rsa "${{ secrets.SSH_HOST }}" "bash -s" < ls 
-          docker compose up --build -d
         
 
 
