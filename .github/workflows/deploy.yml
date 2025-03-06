@@ -15,13 +15,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        with:
-          repository: Fokusmod/Electronic-Medicine
-          ssh-key: ${{ secrets.SSH_GIT_KEY }}
       - name: Set up SSH
         run: |
-          echo "${{ secrets.SSH_GIT_KEY }}"
-          echo "${{ secrets.SSH_KEY }}"
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
