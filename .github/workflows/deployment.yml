@@ -64,21 +64,4 @@ jobs:
 
       - name: maven install
         run: mvn -f */pom.xml clean install -DskipTests
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up SSH
-        run: |
-          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H 90.156.158.203 >> ~/.ssh/known_hosts
-      - name: Connect to SSH Server
-        run: |
-          ssh ${{ secrets.HOST }}
-      - name: change directory
-        run: cd Electronic-Medicine
-      - name: github pull
-        run: git pull
-      - name: build project to cloud
-        run: docker compose up --build
+
