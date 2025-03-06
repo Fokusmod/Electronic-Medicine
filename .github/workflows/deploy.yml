@@ -6,7 +6,7 @@ on:
 env:
   SERVER_HOST: 90.156.158.203
   SERVER_USER: root
-  SERVER_PATH: /root/Electronic-Medicine
+  SERVER_PATH: https://github.com/Fokusmod/Electronic-Medicine
 
 jobs:
 
