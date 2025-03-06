@@ -1,9 +1,9 @@
 name: Test Spring Boot App
 on:
   push:
-    branches: 
-    - 'dev'
-    - 'main'
+    branches:
+      - main
+      - dev
 jobs:
   medicine_app_test:
     runs-on: ubuntu-latest
