@@ -35,8 +35,12 @@ jobs:
         run: mvn -f */pom.xml clean verify
 
   build:
-    runs-on: ubuntu-latest
     needs: test
+    strategy:
+      matrix:
+        java-version: [ 17, 18 ]
+        os: [ ubuntu-latest, windows-latest ]
+    runs-on: ${{ matrix.os }}
     steps:
       - name: get repository code
         uses: actions/checkout@v3
@@ -44,7 +48,7 @@ jobs:
       - name: setup Java
         uses: actions/setup-java@v3
         with:
-          java-version: 18
+          java-version: ${{ matrix.java-version }}
           distribution: corretto
 
       - name: cache maven dependencies
