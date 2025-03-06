@@ -29,6 +29,7 @@ jobs:
             cd Electronic-Medicine;
             git pull;
             docker-compose up --build;
+            docker-compose logs;
           
             # Wait for the containers to be healthy
             while ! docker ps | grep -q 'electronic-medicine_backend_1'; do
