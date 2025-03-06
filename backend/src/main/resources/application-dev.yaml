@@ -9,8 +9,8 @@ spring:
     database: POSTGRESQL
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5000/postgres
-    username: "${DB_USERNAME}"
-    password: "${DB_PASSWORD}"
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     hibernate:
       dialect: org.hibernate.dialect.PostgreSQLDialect
   liquibase:
@@ -23,13 +23,13 @@ spring:
     protocol: smtps
 mail:
   debug: false
-  username: "${MAIL_USERNAME}"
-  password: "${MAIL_PASSWORD}"
+  username: ${MAIL_USERNAME}
+  password: ${MAIL_PASSWORD}
 jwt:
   secret:
-    accessSecret: "${AccessSecret}"
+    accessSecret: ${AccessSecret}
     lifetimeAccess: 5m
-    refreshSecret: "${RefreshSecret}"
+    refreshSecret: ${RefreshSecret}
     lifetimeRefresh: 30m
 api:
   url: "http://localhost:5173/activate"
