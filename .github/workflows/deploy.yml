@@ -20,12 +20,15 @@ jobs:
           ssh-key: ${{ secrets.SSH_GIT_KEY }}
       - name: Set up SSH
         run: |
+          echo ${{ secrets.SSH_GIT_KEY }}
+          echo ${{ secrets.SSH_KEY }}
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_GIT_KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H "${{ env.SERVER_HOST }}" >> ~/.ssh/known_hosts
       - name: Test SSH connection
         run: ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no git@github.com "echo 'SSH connection successful'"
+
       - name: Run script on server
         run: |
           ssh -i ~/.ssh/id_rsa "${{ secrets.SSH_HOST }}" "
