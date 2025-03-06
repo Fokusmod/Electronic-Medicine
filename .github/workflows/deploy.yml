@@ -28,9 +28,7 @@ jobs:
           ssh -i ~/.ssh/id_ed25519 root@${{ env.SERVER_HOST }} "
             cd Electronic-Medicine;
             git pull;
-            docker-compose down;
-            docker system prune -a;
-            docker-compose up --build -d;
+            docker-compose up --build;
           
             # Wait for the containers to be healthy
             while ! docker ps | grep -q 'electronic-medicine_backend_1'; do
