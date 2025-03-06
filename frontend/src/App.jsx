@@ -39,7 +39,11 @@ export default function App() {
             <Route path="/adminka" element={<AdminPage />}>
               <Route path="employyes" element={<Employyes />} />
               <Route path="users" element={<Users />} />
-            </Route>ss
+            </Route>
+          </Route>
+          <Route element={<PrivateSpecialistRoute />}>
+            <Route path="/reception" element={<Reception />} />
+          </Route>
         </Routes>
         <Header />
         <CheckAndRefreshTokens />
