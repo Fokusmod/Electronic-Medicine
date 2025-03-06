@@ -16,7 +16,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: test
-        run: echo "${{ secrets.SSH_KEY }}"
+        run: echo "${{ secrets.SSH_KEY }}" > id_rsa
+          chmod 600 id_rsa
+          ssh-keygen -y -f id_rsa || echo "Invalid SSH Key"
       - name: Add SSH key
         run: |
           mkdir -p ~/.ssh
