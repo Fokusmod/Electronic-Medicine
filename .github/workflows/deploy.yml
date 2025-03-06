@@ -26,7 +26,10 @@ jobs:
 
       - name: Run script on server
         run: |
-          ssh -i ~/.ssh/id_rsa "${{ secrets.SSH_HOST }}" ls
+          ssh -i ~/.ssh/id_rsa "${{ secrets.SSH_HOST }}" 
+          cd Electronic-Medicine
+          git pull
+          docker compose up --build -d
         
 
 
