@@ -27,9 +27,8 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_ed25519 root@${{ env.SERVER_HOST }} "
             cd Electronic-Medicine;
-            docker-compose stop || { echo 'Stop failed, exiting...'; exit 1; };
             git pull;
-            docker-compose up --build -d;
+            docker-compose up --force-recreate --build -d;
           
             # Wait for the containers to be healthy
             while ! docker ps | grep -q 'electronic-medicine_backend_1'; do
