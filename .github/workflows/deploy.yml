@@ -31,6 +31,7 @@ jobs:
             cd Electronic-Medicine;
             ls ~/.ssh;
             git pull;
+            cat docker-compose.yml
             env;
             docker compose up --build;
           "
