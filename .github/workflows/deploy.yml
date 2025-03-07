@@ -26,9 +26,7 @@ jobs:
       - name: Run script on server
         run: |
           ssh root@${{ env.SERVER_HOST }} "
-            env;
-            echo 'export SPRING_DATASOURCE_USERNAME=compose-admin' >> ~/.bashrc;
-            source ~/.bashrc
+            source /etc/profile; source ~/.bashrc;
             env;
             cd Electronic-Medicine;
             git pull;
