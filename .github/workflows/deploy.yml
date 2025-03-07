@@ -27,6 +27,9 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_ed25519 root@${{ env.SERVER_HOST }} "
             env;
+            echo 'export SPRING_DATASOURCE_USERNAME=compose-admin' >> ~/.bashrc;
+            source ~/.bashrc
+            env;
             cd Electronic-Medicine;
             git pull;
             docker compose up --build;
