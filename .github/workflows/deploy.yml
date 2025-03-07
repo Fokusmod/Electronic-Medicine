@@ -25,7 +25,7 @@ jobs:
 
       - name: Run script on server
         run: |
-          ssh -i ~/.ssh/id_ed25519 root@${{ env.SERVER_HOST }} "
+          ssh -i ~/.ssh/id_ed25519 root@${{ env.SERVER_HOST }} "bash -l -c
             cd Electronic-Medicine;
             env;
             git pull;
