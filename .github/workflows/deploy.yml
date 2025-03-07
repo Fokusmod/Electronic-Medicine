@@ -22,14 +22,10 @@ jobs:
             user: root
             private_key: ${{secrets.SSH_KEY}}
             command: |
-              echo '--- START WORK ON REMOTE SERVER ---';
-              cd cd Electronic-Medicine;
-              echo '--- LIST OF FILES ---';
-              ls -al;
-              echo '--- GIT INFORMATION ---'
+              cd Electronic-Medicine;
               git pull;
-              echo '--- 12312313 ---';
-              env;
+              docker compose up --build;
+
               
 
 #      - name: Add SSH key
