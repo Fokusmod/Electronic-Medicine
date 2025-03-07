@@ -27,7 +27,7 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_ed25519 root@${{ env.SERVER_HOST }} "bash -lc
             'cd Electronic-Medicine;
-            env;
+            env;'
             git pull;
             docker compose up --build;
           
@@ -36,4 +36,4 @@ jobs:
               echo 'Waiting for the container to start...';
               sleep 5;
             done;
-          '"
+          "
