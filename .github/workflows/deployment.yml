@@ -65,3 +65,19 @@ jobs:
       - name: maven install
         run: mvn -f */pom.xml clean install -DskipTests
 
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Run command on remote server
+        uses: D3rHase/ssh-command-action@v0.2.2
+        with:
+          host: ${{secrets.SSH_HOST}}
+          user: ${{secrets.SSH_USER}}
+          private_key: ${{secrets.SSH_KEY}}
+          command: |
+            cd Electronic-Medicine;
+            git pull;
+            docker compose up --build -d;
