@@ -15,20 +15,36 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Run command on remote server
+        uses: D3rHase/ssh-command-action@v0.2.2
+        with:
+            host: ${{ env.SERVER_HOST }}
+            user: root
+            private_key: ${{secrets.SSH_KEY}}
+            command: |
+              echo '--- START WORK ON REMOTE SERVER ---';
+              cd cd Electronic-Medicine;
+              echo '--- LIST OF FILES ---';
+              ls -al;
+              echo '--- GIT INFORMATION ---'
+              git pull;
+              echo '--- 12312313 ---';
+              env;
+              
 
-      - name: Add SSH key
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{secrets.SSH_KEY}}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -H ${{env.SERVER_HOST}} >> ~/.ssh/known_hosts
-
-      - name: Run script on server
-        run: |
-          ssh root@${{ env.SERVER_HOST }} "
-          source ~/.bashrc &&
-          env;  # Список переменных окружения после загрузки .bashrc
-          cd Electronic-Medicine &&
-          git pull &&
-          docker compose up --build;
-          "
+#      - name: Add SSH key
+#        run: |
+#          mkdir -p ~/.ssh
+#          echo "${{secrets.SSH_KEY}}" > ~/.ssh/id_ed25519
+#          chmod 600 ~/.ssh/id_ed25519
+#          ssh-keyscan -H ${{env.SERVER_HOST}} >> ~/.ssh/known_hosts
+#
+#      - name: Run script on server
+#        run: |
+#          ssh root@${{ env.SERVER_HOST }} "
+#          source ~/.bashrc &&
+#          env;  # Список переменных окружения после загрузки .bashrc
+#          cd Electronic-Medicine &&
+#          git pull &&
+#          docker compose up --build;
+#          "
