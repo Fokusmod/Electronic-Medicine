@@ -26,9 +26,9 @@ jobs:
       - name: Run script on server
         run: |
           ssh root@${{ env.SERVER_HOST }} "
-            source /etc/profile; source ~/.bashrc;
-            env;
-            cd Electronic-Medicine;
-            git pull;
-            docker compose up --build;
+          source ~/.bashrc &&
+          env;  # Список переменных окружения после загрузки .bashrc
+          cd Electronic-Medicine &&
+          git pull &&
+          docker compose up --build;
           "
