@@ -25,9 +25,9 @@ jobs:
 
       - name: Run script on server
         run: |
-          ssh -i ~/.ssh/id_ed25519 root@${{ env.SERVER_HOST }} "bash -lc
-            'cd Electronic-Medicine;
-            env;'
+          ssh -i ~/.ssh/id_ed25519 root@${{ env.SERVER_HOST }} "
+            bash lc 'env';
+            cd Electronic-Medicine;
             git pull;
             docker compose up --build;
           
