@@ -27,11 +27,7 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_ed25519 root@${{ env.SERVER_HOST }} "
             env;
-            docker-compose down;
             cd Electronic-Medicine;
-            ls ~/.ssh;
             git pull;
-            cat docker-compose.yml
-            env;
             docker compose up --build;
           "
