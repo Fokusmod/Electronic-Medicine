@@ -26,14 +26,9 @@ jobs:
       - name: Run script on server
         run: |
           ssh -i ~/.ssh/id_ed25519 root@${{ env.SERVER_HOST }} "
-            bash -lc 'env';
+            env;
             cd Electronic-Medicine;
+            ls ~/.ssh;
             git pull;
             docker compose up --build;
-          
-            # Wait for the containers to be healthy
-            while ! docker ps | grep -q 'electronic-medicine_backend_1'; do
-              echo 'Waiting for the container to start...';
-              sleep 5;
-            done;
           "
