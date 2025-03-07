@@ -14,7 +14,7 @@ services:
     restart: unless-stopped
     environment:
       - POSTGRES_USER="${SPRING_DATASOURCE_USERNAME}"
-      - POSTGRES_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+      - POSTGRES_PASSWORD="${SPRING_DATASOURCE_PASSWORD}"
   nginx:
     image: nginx:stable-alpine
     ports:
