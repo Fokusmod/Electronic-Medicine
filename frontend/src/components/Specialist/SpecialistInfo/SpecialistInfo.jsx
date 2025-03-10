@@ -1,6 +1,6 @@
-import BackBtnHiddenOnScrollBottom from "../Navigate-Btn/BackBtnHiddenOnScrollBottom";
-import ToTopBtn from "../Navigate-Btn/ToTopBtn";
-import Footer from "../Footer/Footer";
+import BackBtnHiddenOnScrollBottom from "../../Navigate-Btn/BackBtnHiddenOnScrollBottom";
+import ToTopBtn from "../../Navigate-Btn/ToTopBtn";
+import Footer from "../../Footer/Footer";
 import "./SpecialistInfo.css";
 
 import { useParams } from "react-router-dom";

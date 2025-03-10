@@ -1,7 +1,7 @@
 import "./SpecialistInfo.css";
-import Modal from "../Modal/Modal";
+import Modal from "../../Modal/Modal";
 
-import Button from "../Button/Button";
+import Button from "../../Button/Button";
 import { useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 

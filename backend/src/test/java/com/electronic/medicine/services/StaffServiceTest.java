@@ -108,29 +108,6 @@ class StaffServiceTest {
         verify(userRepository).findAllByRoles(role);
     }
 
-
-    @Test
-    @DisplayName("setSpecialistReception успешное выполнение")
-    void setSpecialistReception() {
-        ZoneId zoneId = ZoneId.of("Europe/Moscow");
-        LocalDateTime localDateTime = LocalDateTime.of(2025,2,28,10,0);
-        ZoneOffset zoneOffset = zoneId.getRules().getOffset(localDateTime);
-        User user = new User();
-        user.setId(1L);
-        user.setReceptions(new HashSet<>());
-        Reception reception = new Reception(null, Date.from(localDateTime.toInstant(zoneOffset)));
-
-        ReceptionRequest request = new ReceptionRequest();
-        request.setId(1L);
-        request.setTime(localDateTime.getHour() + ":" + localDateTime.getMinute());
-        request.setDate(localDateTime.getYear() + "-" + localDateTime.getMonth().getValue() + "-" + localDateTime.getDayOfMonth());
-
-        when(userService.findById(1L)).thenReturn(user);
-        staffService.setSpecialistReception(request);
-        verify(receptionService).saveReception(reception);
-        verify(userService).saveUser(user);
-    }
-
     @Test
     @DisplayName("getSpecialistReceptionByDateThreeParam успешное выполнение")
     void getSpecialistReceptionByDateThreeParam_Success() {

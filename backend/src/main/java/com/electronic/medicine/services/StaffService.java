@@ -7,12 +7,15 @@ import com.electronic.medicine.entity.Reception;
 import com.electronic.medicine.entity.Role;
 import com.electronic.medicine.entity.Speciality;
 import com.electronic.medicine.entity.User;
+import com.electronic.medicine.exception.MedicineBadCredential;
 import com.electronic.medicine.exception.MedicineServerErrorException;
 import com.electronic.medicine.repository.UserRepository;
+import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.io.UnsupportedEncodingException;
 import java.time.*;
 import java.util.*;
 
@@ -25,6 +28,7 @@ public class StaffService {
     private final RoleService roleService;
     private final UserService userService;
     private final ReceptionService receptionService;
+    private final MailSender mailSender;
 
 
     public List<User> getUsersByRole(String role) {
@@ -64,11 +68,20 @@ public class StaffService {
 
     public void setSpecialistReception(ReceptionRequest reception) {
         Reception rec = new Reception();
-        rec.setReceptionTime(parserRequestReceptionToDate(reception.getDate(),reception.getTime()));
+        rec.setReceptionTime(parserRequestReceptionToDate(reception.getDate(), reception.getTime()));
         receptionService.saveReception(rec);
         User user = userService.findById(reception.getId());
         user.getReceptions().add(rec);
         userService.saveUser(user);
+        sendTicketToEmail(reception, user);
+    }
+
+    private void sendTicketToEmail(ReceptionRequest reception, User specialist) {
+        String spec = specialist.getSpecialities().stream().toList().get(0).getTitle();
+        String title = "Вы были записаны на приём";
+        String message = "Добрый день " + reception.getUsername() + "! Вы были записаны на приём к " + spec + "у" +
+                         "<p><b>Дата приёма: " + reception.getDate() + " в " + reception.getTime() + "</b></p>";
+        mailSender.sendMessage(reception.getUsername(), title, message);
     }
 
     private Date parserRequestReceptionToDate(String date, String time) {
@@ -99,7 +112,7 @@ public class StaffService {
         }
         if (user != null) {
             result = getReceptionByDate(user, moscowDate);
-            log.debug("Получен список записей на приём ко врачу {} на {}", user.getId(), date);
+            log.debug("Получен список записей по имени на приём ко врачу {} на {}", user.getId(), date);
         } else {
             throw new MedicineServerErrorException("Серверная ошибка. Указанный специалист не найден на сервере.");
         }
@@ -109,14 +122,14 @@ public class StaffService {
     public SpecialistReception getSpecialistReceptionByDate(Long id, Date date) {
         Date moscowDate = getMoscowDate(date);
         User user = userService.findById(id);
-        List<ReceptionDto> result = getReceptionByDate(user,moscowDate);
+        List<ReceptionDto> result = getReceptionByDate(user, moscowDate);
         result.sort(new Comparator<ReceptionDto>() {
             @Override
             public int compare(ReceptionDto o1, ReceptionDto o2) {
                 return o1.getDate().compareTo(o2.getDate());
             }
         });
-        log.debug("Получен список записей на приём ко врачу {} на {}", user.getId(), date);
+        log.debug("Получен список записей по id на приём ко врачу {} на {}", user.getId(), date);
         return new SpecialistReception(user.getId(), result);
     }
 
@@ -128,7 +141,7 @@ public class StaffService {
             LocalDate dateReception = LocalDate.ofInstant(reception.getReceptionTime().toInstant(), zoneId);
             LocalDate currentDate = LocalDate.ofInstant(date.toInstant(), zoneId);
             if (dateReception.isEqual(currentDate)) {
-                LocalTime localTime =LocalTime.ofInstant(reception.getReceptionTime().toInstant(), zoneId);
+                LocalTime localTime = LocalTime.ofInstant(reception.getReceptionTime().toInstant(), zoneId);
                 result.add(new ReceptionDto(localTime.toString()));
             }
         }
@@ -183,13 +196,13 @@ public class StaffService {
         return specByName.get(0);
     }
 
-    private User getRandomSpecialistBySpecialisation(String specialisation){
-        List<User> specBySpecialisation = findStaffUsers("SPECIALIST",specialisation);
+    private User getRandomSpecialistBySpecialisation(String specialisation) {
+        List<User> specBySpecialisation = findStaffUsers("SPECIALIST", specialisation);
         if (specBySpecialisation.isEmpty()) {
             log.debug("Нет специалистов co специализацией {} в базе данных ", specialisation);
             return null;
         }
-        int random = (int )(Math.random() * specBySpecialisation.size() + 1) - 1;
+        int random = (int) (Math.random() * specBySpecialisation.size() + 1) - 1;
         return specBySpecialisation.get(random);
     }
 
@@ -221,7 +234,6 @@ public class StaffService {
         }
         return result;
     }
-
 
 
 }

@@ -1,5 +1,5 @@
 import "./SpecialistInfo.css";
-import Button from "../Button/Button";
+import Button from "../../Button/Button";
 
 import { animateScroll } from "react-scroll";
 import { useNavigate } from "react-router-dom";
