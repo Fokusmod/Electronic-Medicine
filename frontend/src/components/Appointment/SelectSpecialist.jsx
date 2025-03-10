@@ -8,6 +8,8 @@ import { useState, useRef, useEffect } from "react";
 export default function SelectSpecialist(props) {
   const devApi = localStorage.getItem("host");
   const specialistBox = useRef();
+  const checkbox = useRef();
+  const checkboxLabel = useRef();
   const nextStep = useRef();
   const notFoundDiv = useRef();
   const [isChecked, setIsChecked] = useState(true);
@@ -30,9 +32,27 @@ export default function SelectSpecialist(props) {
       if (responseBody.length == 0) {
         setNotFoundDiv();
         setContent(responseBody);
+        if (!nextStep.current.classList.contains("hide")) {
+          nextStep.current.classList.add("hide");
+        }
+        if (!checkbox.current.classList.contains("hide")) {
+          checkbox.current.classList.add("hide");
+        }
+        if (!checkboxLabel.current.classList.contains("hide")) {
+          checkboxLabel.current.classList.add("hide");
+        }
       } else {
         removeNotFoundDiv();
         setContent(responseBody);
+        if (nextStep.current.classList.contains("hide")) {
+          nextStep.current.classList.remove("hide");
+        }
+        if (checkbox.current.classList.contains("hide")) {
+          checkbox.current.classList.remove("hide");
+        }
+        if (checkboxLabel.current.classList.contains("hide")) {
+          checkboxLabel.current.classList.remove("hide");
+        }
       }
     } else {
       console.log("Что пошло не так с загрузкой специалистов.");
@@ -142,13 +162,14 @@ export default function SelectSpecialist(props) {
         </div>
       </div>
       <input
+        ref={checkbox}
         className="appoint-checkbox"
         type="checkbox"
         id="important"
         name="important"
         onChange={handleChange}
       />
-      <label htmlFor="important" className="label">
+      <label ref={checkboxLabel} htmlFor="important" className="label">
         Специалист не важен
       </label>
       <div ref={nextStep} className="appoint-column">

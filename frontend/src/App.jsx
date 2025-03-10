@@ -12,15 +12,17 @@ import Reception from "./components/Reception/Reception.jsx";
 import Head from "./components/Head/Head.jsx";
 import AdminPage from "./components/AdminPage/AdminPage.jsx";
 import Users from "./components/AdminPage/Users.jsx";
-import SpecialistInfo from "./components/SpecialistInfo/SpecialistInfo.jsx";
+import SpecialistInfo from "./components/Specialist/SpecialistInfo/SpecialistInfo.jsx";
 import PrivateSpecialistRoute from "./PrivateSpecialistRoute.jsx";
 import PrivateAdminRoute from "./PrivateAdminRoute.jsx";
 import NotFoundPage from "./components/ErrorPage/NotFoundPage.jsx";
 import CheckActivationCode from "./components/Login/CheckActivationCode.jsx";
 
 export default function App() {
-  /*   localStorage.setItem("host", "http://localhost:8080"); */
-  localStorage.setItem("host", "http://90.156.158.203/api");
+  /*   localStorage.setItem("host", "http://localhost:8080") */ localStorage.setItem(
+    "host",
+    "http://90.156.158.203/api"
+  );
 
   return (
     <>

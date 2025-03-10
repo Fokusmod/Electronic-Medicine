@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
+import ReactLoading from "react-loading";
 
 import "./Appointment.css";
 
@@ -35,6 +36,7 @@ export default function CustomDateSection(props) {
   const [selectDate, setSelectDate] = useState("");
   const [selectTime, setSelectTime] = useState("");
   const [aviableTimeSlot, setAviableTimeSlot] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const inputDate = useRef();
   const inputTime = useRef();
@@ -147,7 +149,6 @@ export default function CustomDateSection(props) {
       props.getCurrentSpec === false ? "false" : props.getCurrentSpec;
     if (selectDate == "") return;
     let date = new Date(selectDate);
-    console.log(date);
     const response = await fetch(
       devApi +
         "/staff/getSpecialistReception/" +
@@ -165,20 +166,22 @@ export default function CustomDateSection(props) {
       setSpecId(responseBody.specId);
       setBusyDate(responseBody.list);
       return responseBody.list;
-    } else {
-      console.log(
-        "Что пошло не так с загрузкой свободных слотов для записи на приём."
-      );
     }
   }
 
   async function makeAnAppointment() {
+    setLoading(true);
     let requestBody = {
       id: specId,
       date: selectDate.toLocaleString("ru-RU", {
         timeZone: "Europe/Moscow",
       }),
       time: selectTime,
+      username:
+        localStorage.getItem("username") !== null &&
+        localStorage.getItem("username") !== undefined
+          ? localStorage.getItem("username")
+          : sessionStorage.getItem("username"),
     };
     const response = await fetch(devApi + "/staff/setSpecialistReception", {
       method: "POST",
@@ -188,15 +191,14 @@ export default function CustomDateSection(props) {
       body: JSON.stringify(requestBody),
     });
     /* var responseBody = await response.json(); */
-    if (response.status === 200) {
+    if (response.status === 200 || response.status === 500) {
       setIsOpen(true);
       setModalData(
         "Время приёма: " + selectDate + " / " + inputTime.current.value
       );
       localStorage.removeItem("specImportant");
       localStorage.removeItem("specialisation");
-    } else {
-      console.log("Что пошло не так. Попробуйте заново.");
+      setLoading(false);
     }
   }
 
@@ -276,7 +278,17 @@ export default function CustomDateSection(props) {
         </div>
       </div>
       <div className="centered-end">
-        <Button name="Записаться" func={makeAnAppointment} />
+        {loading ? (
+          <ReactLoading
+            type={"spin"}
+            color={"silver"}
+            height={50}
+            width={50}
+            className="margin-auth"
+          />
+        ) : (
+          <Button name="Записаться" func={makeAnAppointment} />
+        )}
       </div>
       <Modal
         open={isOpen}

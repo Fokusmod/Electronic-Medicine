@@ -36,8 +36,6 @@ public class UserService implements UserDetailsService {
     @Value("${api.url}")
     private static String HOST;
 
-    private final int passwordLength = 6;
-
     private final UserRepository userRepository;
 
     private final RoleService roleService;
@@ -103,26 +101,19 @@ public class UserService implements UserDetailsService {
     }
 
     public void sendActivationCodeToNewUser(User user) {
-        try {
-            StringBuilder message = new StringBuilder();
-            message.append("<h4>Добро пожаловать ").append(user.getEmail()).append(". Ваш код активации ").append(user.getActivationCode()).append("</h4>");
-            message.append("<span>Вы также можете посетить страницу активации по адресу <a href=").append(HOST).append(">Ваша ссылка</a> </span>");
-            mailSender.sendActivateCodeMessage(user.getEmail(), "Код активации для продолжения регистрации на " +
-                    "портале Electronic Medicine", message.toString());
-        } catch (Exception e) {
-//            throw new MedicineServerErrorException("Указанный вами email адрес не существует.");
-            e.printStackTrace();
-        }
+        StringBuilder message = new StringBuilder();
+        message.append("<h4>Добро пожаловать ").append(user.getEmail()).append(". Ваш код активации ").append(user.getActivationCode()).append("</h4>");
+        message.append("<span>Вы также можете посетить страницу активации по адресу <a href=").append(HOST).append(">Ваша ссылка</a> </span>");
+        mailSender.sendMessage(user.getEmail(), "Код активации для продолжения регистрации на " +
+                                                "портале Electronic Medicine", message.toString());
+
     }
 
     public void sendSuccessActivation(User user) {
-        try {
-            StringBuilder message = new StringBuilder();
-            message.append("<h4>Поздравляем! Вы успешно активировали учётную запись.</h4>");
-            mailSender.sendActivateCodeMessage(user.getEmail(), "Успешное подтверждение аккаунта", message.toString());
-        } catch (Exception e) {
-            throw new MedicineServerErrorException("Указанный вами email адрес не существует.");
-        }
+        StringBuilder message = new StringBuilder();
+        message.append("<h4>Поздравляем! Вы успешно активировали учётную запись.</h4>");
+        mailSender.sendMessage(user.getEmail(), "Успешное подтверждение аккаунта", message.toString());
+
     }
 
 
@@ -163,6 +154,7 @@ public class UserService implements UserDetailsService {
     }
 
     private void checkPasswordLength(String password) {
+        int passwordLength = 6;
         if (password.length() < passwordLength) {
             log.debug("Указанный пароль менее " + passwordLength + " символов.");
             throw new MedicineBadCredential("Пароль не должен быть короче " + passwordLength + " символов.");
@@ -174,7 +166,6 @@ public class UserService implements UserDetailsService {
     public void setPasswordEncoder(@Lazy PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
     }
-
 
 
 }

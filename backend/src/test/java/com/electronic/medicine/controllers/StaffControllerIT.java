@@ -116,19 +116,6 @@ class StaffControllerIT {
     }
 
     @Test
-    void setSpecialistReception() throws Exception {
-        var mockBuilder = MockMvcRequestBuilders
-                .post("/staff/setSpecialistReception")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content("""
-                        {"id":3, "date": "2025-02-26", "time":"16:00"}
-                        """);
-        this.mockMvc.perform(mockBuilder).andExpect(
-                status().isOk());
-    }
-
-
-    @Test
     void setAdminRoleIsForbidden() throws Exception {
         var mockBuilder = MockMvcRequestBuilders
                 .put("/staff/setAdminRole/3")

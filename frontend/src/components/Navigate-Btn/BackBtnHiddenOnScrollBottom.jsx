@@ -35,7 +35,11 @@ export default function BackBtn() {
   }, []);
 
   return (
-    <div ref={backBtn} className="back-btn-div" onClick={navigationToBack}>
+    <div
+      ref={backBtn}
+      className="back-btn-div active"
+      onClick={navigationToBack}
+    >
       <div className="back-navigation"></div>
       <div className="to-top-btn-text">Назад</div>
     </div>

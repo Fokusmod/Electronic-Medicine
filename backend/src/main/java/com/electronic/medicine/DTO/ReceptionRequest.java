@@ -16,4 +16,6 @@ public class ReceptionRequest {
     private String date;
 
     private String time;
+
+    private String username;
 }
