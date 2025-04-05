@@ -94,18 +94,15 @@ class StaffServiceTest {
     @Test
     @DisplayName("getAllSpecialistByParam успешное выполнение")
     void getAllSpecialistByParam_Success() {
-        String title = "SPECIALIST";
-        Role role = new Role(1L, title);
+        String title = "SomeOne";
         List<User> testList = List.of(
                 mock(User.class),
                 mock(User.class),
                 mock(User.class));
-        when(roleService.getByTitle(title)).thenReturn(role);
-        when(userRepository.findAllByRoles(role)).thenReturn(testList);
-        var result = staffService.getAllSpecialistByParam("Онколог");
-        assertEquals(new ArrayList<>(), result);
-        verify(roleService).getByTitle(title);
-        verify(userRepository).findAllByRoles(role);
+        when(userRepository.getSpecialistByTitle(title)).thenReturn(testList);
+        var result = staffService.getAllSpecialistByParam(title);
+        assertEquals(testList, result);
+        verify(userRepository).getSpecialistByTitle(title);
     }
 
     @Test
