@@ -53,17 +53,7 @@ public class StaffService {
     }
 
     public List<User> getAllSpecialistByParam(String param) {
-        List<User> all = userRepository.findAllByRoles(roleService.getByTitle("SPECIALIST"));
-        List<User> result = new ArrayList<>();
-        for (User user : all) {
-            Set<Speciality> specList = user.getSpecialities();
-            for (Speciality speciality : specList) {
-                if (speciality.getTitle().equals(param)) {
-                    result.add(user);
-                }
-            }
-        }
-        return result;
+        return userRepository.getSpecialistByTitle(param);
     }
 
     public void setSpecialistReception(ReceptionRequest reception) {

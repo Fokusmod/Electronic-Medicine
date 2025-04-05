@@ -5,6 +5,10 @@ logging:
         medicine: debug
 spring:
   jpa:
+    show-sql: true
+  properties:
+    hibernate:
+      format-sql: true
   datasource:
     database: POSTGRESQL
     driver-class-name: org.postgresql.Driver
@@ -33,6 +37,7 @@ jwt:
     lifetimeRefresh: 30m
 api:
   url: "http://localhost:5173/activate"
+
 
 
 
