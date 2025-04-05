@@ -5,6 +5,7 @@ import com.electronic.medicine.entity.Review;
 import com.electronic.medicine.entity.User;
 import com.electronic.medicine.exception.MedicineServerErrorException;
 import com.electronic.medicine.repository.ReviewRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,7 @@ public class ReviewService {
 
     private final UserService userService;
 
+    @Transactional
     public void addSpecialistReview(ReviewRequest reviewRequest) {
         Review review = new Review();
         review.setAuthor(reviewRequest.getAuthor());

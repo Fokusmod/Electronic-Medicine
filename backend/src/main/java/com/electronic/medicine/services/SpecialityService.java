@@ -36,6 +36,7 @@ public class SpecialityService {
         user.setSpecialities(specialities);
         userService.saveUser(user);
     }
+
     private void upgradeUserToSpecialist(User user) {
         Set<Role> userRoles = user.getRoles();
         for (Role userRole : userRoles) {
